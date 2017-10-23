@@ -4,7 +4,6 @@ The R/GRASS script is used to overlay country boundaries with a 1-degree grid an
 
 ### Data
 
-Source of the data:
 - [Global Administrative Unit Layer](https://figshare.com/s/104dcfb699b790453ca5) from FAO.
 - [Ecozones](https://figshare.com/s/d249aa1c5485e3ad4273) from FAO.
 
@@ -21,4 +20,7 @@ A shapefile is exported with the following column names in the attribute table:
 - `ctryname`: country name.
 - `ecozone`: reclassified ecozone.
 
-Results can be downloaded [here]().
+![Colors by country](output/ctry.png)
+![Colors by ecozone](output/ecozone.png)
+
+Results can be downloaded [here](https://figshare.com/s/4cded4c3bfca8179f082).

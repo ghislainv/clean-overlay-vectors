@@ -80,4 +80,27 @@ system("v.db.renamecolumn ctry_grid_ecozone column=b_Reclass,ecozone")
 dir.create("output")
 system("v.out.ogr input=ctry_grid_ecozone output=output/ctry_grid_ecozone.shp")
 
+# Zip
+ff <- c("output/ctry_grid_ecozone.shx", "output/ctry_grid_ecozone.shp", "output/ctry_grid_ecozone.dbf")
+zip(zipfile="output/ctry_grid_ecozone.zip",files=ff)
+
+#==============
+# Plots
+library(rgdal)
+ctry_grid_ecozone <- readOGR("output/ctry_grid_ecozone.shp")
+# Country
+png("output/ctry.png", width=960, height=240)
+par(mar=c(0,0,0,0))
+plot(ctry_grid_ecozone, col=ctry_grid_ecozone$ctrycode, lwd=0.5)
+dev.off()
+# Ecozone
+colors <- ctry_grid_ecozone$ecozone
+colors[colors==1] <- "darkgreen"
+colors[colors==2] <- "orange"
+colors[colors==3] <- "yellow"
+png("output/ecozone.png", width=960, height=240)
+par(mar=c(0,0,0,0))
+plot(ctry_grid_ecozone, col=colors, lwd=0.5)
+dev.off()
+
 # End

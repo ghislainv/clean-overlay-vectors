@@ -4,6 +4,7 @@ grassdata
 
 # Output
 output
+!output/*.png
 
 # History files
 .Rhistory
